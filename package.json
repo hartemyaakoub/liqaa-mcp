@@ -1,0 +1,33 @@
+{
+  "name": "@liqaa/mcp",
+  "version": "1.0.0",
+  "description": "Model Context Protocol (MCP) server for LIQAA — let AI agents start video calls.",
+  "keywords": ["liqaa", "mcp", "model-context-protocol", "ai", "agents", "claude", "cursor", "video", "webrtc"],
+  "homepage": "https://liqaa.io/docs#mcp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hartemyaakoub/liqaa-mcp.git"
+  },
+  "bugs": "https://github.com/hartemyaakoub/liqaa-mcp/issues",
+  "author": {
+    "name": "Yaakoub HARTEM",
+    "email": "yaakoub.hartem.mhsi@gmail.com",
+    "url": "https://liqaa.io"
+  },
+  "license": "MIT",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "bin": {
+    "liqaa-mcp": "./src/index.mjs"
+  },
+  "files": ["src", "README.md", "LICENSE"],
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
