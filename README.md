@@ -24,23 +24,23 @@ The **Model Context Protocol** lets AI assistants (Claude Desktop, Cursor, Conti
 
 ## Tools exposed
 
-| Tool                          | Description                                                      |
+| Tool | Description |
 | ----------------------------- | ---------------------------------------------------------------- |
-| `liqaa_create_room`           | Create or reuse a persistent room between two users.             |
-| `liqaa_get_room`              | Look up the state of a room by `external_conversation_id`.       |
-| `liqaa_end_room`              | End an active call.                                              |
-| `liqaa_issue_sdk_token`       | Issue a 1-hour browser-safe JWT for a given identity.            |
-| `liqaa_list_webhooks`         | Inspect your webhook subscriptions.                              |
-| `liqaa_create_webhook`        | Subscribe to events (returns one-time signing secret).           |
+| `liqaa_create_room` | Create or reuse a persistent room between two users. |
+| `liqaa_get_room` | Look up the state of a room by `external_conversation_id`. |
+| `liqaa_end_room` | End an active call. |
+| `liqaa_issue_sdk_token` | Issue a 1-hour browser-safe JWT for a given identity. |
+| `liqaa_list_webhooks` | Inspect your webhook subscriptions. |
+| `liqaa_create_webhook` | Subscribe to events (returns one-time signing secret). |
 
 ## Resources exposed
 
-| URI                                | Returns                                                           |
+| URI | Returns |
 | ---------------------------------- | ----------------------------------------------------------------- |
-| `liqaa://docs/quickstart`          | Quickstart guide as markdown.                                     |
-| `liqaa://docs/api`                 | OpenAPI 3.1 spec (live).                                          |
-| `liqaa://docs/security`            | Security policy.                                                  |
-| `liqaa://status`                   | Live status of LIQAA Cloud (uptime, latency).                     |
+| `liqaa://docs/quickstart` | Quickstart guide as markdown. |
+| `liqaa://docs/api` | OpenAPI 3.1 spec (live). |
+| `liqaa://docs/security` | Security policy. |
+| `liqaa://status` | Live status of LIQAA Cloud (uptime, latency). |
 
 ## Install
 
@@ -50,16 +50,16 @@ Add to your `~/.config/claude/claude_desktop_config.json`:
 
 ```json
 {
-  "mcpServers": {
-    "liqaa": {
-      "command": "npx",
-      "args": ["-y", "@liqaa/mcp"],
-      "env": {
-        "LIQAA_PK": "pk_live_…",
-        "LIQAA_SK": "sk_live_…"
-      }
-    }
-  }
+ "mcpServers": {
+ "liqaa": {
+ "command": "npx",
+ "args": ["-y", "@liqaa/mcp"],
+ "env": {
+ "LIQAA_PK": "pk_live_…",
+ "LIQAA_SK": "sk_live_…"
+ }
+ }
+ }
 }
 ```
 
@@ -69,9 +69,9 @@ Settings → MCP → Add new server:
 
 ```json
 {
-  "name": "liqaa",
-  "command": "npx -y @liqaa/mcp",
-  "env": { "LIQAA_PK": "...", "LIQAA_SK": "..." }
+ "name": "liqaa",
+ "command": "npx -y @liqaa/mcp",
+ "env": { "LIQAA_PK": "...", "LIQAA_SK": "..." }
 }
 ```
 
@@ -95,10 +95,10 @@ Once connected, just ask in natural language:
 ## How it works
 
 ```
-┌────────────┐  MCP (stdio/JSON-RPC)  ┌───────────┐  HTTPS+JWT  ┌────────────┐
-│ AI agent   │ ──────────────────────▶│ liqaa-mcp │ ───────────▶│ LIQAA API  │
-│ (Claude…)  │ ◀──────────────────────│  server   │ ◀───────────│            │
-└────────────┘                        └───────────┘             └────────────┘
+ MCP (stdio/JSON-RPC) HTTPS+JWT
+ AI agent liqaa-mcp LIQAA API
+ (Claude…) server
+
 ```
 
 The agent invokes a tool → MCP server translates to a REST call → response flows back as structured content.
